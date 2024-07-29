@@ -1,1 +1,3 @@
-# tryhackme-walkthroughs
+## TryHackMe Walkthroughs
+
+- [clocky-walkthrough](clocky-walkthrough.md)
