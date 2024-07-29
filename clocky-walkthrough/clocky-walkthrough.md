@@ -1,4 +1,5 @@
-#tryhack me clocky walthrough
+TRYHACKME WALKTHROUGH
+-------------------------
 
 #machine name: CLOCKY
 #difficulty: MEDIUM
