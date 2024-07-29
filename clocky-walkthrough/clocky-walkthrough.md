@@ -1,9 +1,9 @@
 TRYHACKME WALKTHROUGH
 -------------------------
 
-#machine name: CLOCKY
-#difficulty: MEDIUM
-#category: WEB-SERVER
+->machine name: CLOCKY
+->difficulty: MEDIUM
+->category: WEB-SERVER
 
 
 first we scan the target machine using NMAP
@@ -15,10 +15,10 @@ first we scan the target machine using NMAP
 
 OPEN PORTS
 ----------
-[80]->http 
-[22]->ssh
-[8080]->http-proxy
-[8000]-> http
+->[80]->http 
+->[22]->ssh
+->[8080]->http-proxy
+->[8000]-> http
 
 
 as you can see 'http" service is open. less try to check the website hosted.
