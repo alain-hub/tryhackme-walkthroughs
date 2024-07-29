@@ -64,6 +64,10 @@ we have found our flag 2 ladies and gentlemen!
 ![alt text](<flag 2-1.png>)
 
 
+now onto flag 3 hunt!
+
+let's dive into the "app.py script" to see if we can get something interesting.
+
 
 
 
