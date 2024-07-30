@@ -134,6 +134,30 @@ after clicking download, there appears to be a download file. and it contains "f
 ![flag 4](<flag 4-1.png>)
 
 
+We can see that it is a script used to create some tables and there appears to be a password located in the file. we'll try to bruteforce it against the usernames seen above.
+
+first of all, gather the usernames in a file and copy the password from the  'app.py' file. 
+
+let's use a tool called hydra to obtain ssh credentials.
+
+run -> hydra -L usernames.txt -p "<passwordfromfile>" ssh://<ip>
+
+the result got:
+![password spraying](<password found-1.png>)
+
+now that we confirmed that username "clarice" and password "passwordfromfile" can be used to login to ssh, let's try and see.
+![shh successful login](<ssh successful login-1.png>)
+
+by listing the files and folders we can see that there is a file called "flag5.txt" and that's where our flag is located.
+![flag 5](<flag 5-1.png>)
+
+
+
+
+
+
+
+
 
 
 
