@@ -180,7 +180,7 @@ this will help to make hashes more comprehensible and easy to understand.
 
 Now we need to copy each hash and provide the same to hashcat tool to crack them using the following command:
 
-->hashcat -m 7401 -a 0 hash.txt /usr/share/wordlists/rockyou.txt -O –session hash.txt
+->[hashcat -m 7401 -a 0 hash.txt /usr/share/wordlists/rockyou.txt -O –session hash.txt]
 
 Here the hash mode is MySQL SHA256 hash. After a few minutes, we will find that one of the provided hash is cracked and we can see the clear text password using the following command:
 
